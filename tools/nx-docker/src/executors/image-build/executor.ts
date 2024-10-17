@@ -4,7 +4,7 @@ import * as dockerode from 'dockerode';
 import { DockerDefaultConfig } from '../../common';
 
 const runExecutor: PromiseExecutor<ImageBuildExecutorSchema> = async (
-  options
+  options,
 ) => {
   console.log('Building image');
   const docker = new dockerode(options.docker || DockerDefaultConfig);

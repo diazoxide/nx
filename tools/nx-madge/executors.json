@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "generate-project-graph": {
+      "implementation": "./src/executors/generate-project-graph/executor",
+      "schema": "./src/executors/generate-project-graph/schema.json",
+      "description": "generate-project-graph executor"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "ToolsNxMadgePluginSrcExecutorsGenerateProjectDepsGraph executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "config": {
+      "type": "object",
+      "description": "MadgeConfig",
+      "default": {}
+    }
+  },
+  "required": []
+}

@@ -1,0 +1,41 @@
+{
+  "name": "nx-madge",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/nx-madge/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/nx-madge",
+        "main": "tools/nx-madge/src/index.ts",
+        "tsConfig": "tools/nx-madge/tsconfig.lib.json",
+        "assets": [
+          "tools/nx-madge/*.md",
+          {
+            "input": "./tools/nx-madge/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/nx-madge/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/nx-madge",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/nx-madge",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}
