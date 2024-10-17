@@ -1,0 +1,19 @@
+{
+  "executors": {
+    "image-build": {
+      "implementation": "./src/executors/image-build/executor",
+      "schema": "./src/executors/image-build/schema.json",
+      "description": "image-build executor"
+    },
+    "image-push": {
+      "implementation": "./src/executors/image-push/executor",
+      "schema": "./src/executors/image-push/schema.json",
+      "description": "image-push executor"
+    },
+    "run-container": {
+      "implementation": "./src/executors/run-container/executor",
+      "schema": "./src/executors/run-container/schema.json",
+      "description": "run-container executor"
+    }
+  }
+}
