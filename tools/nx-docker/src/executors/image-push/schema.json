@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "ImagePush executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "docker": {
+      "type": "object",
+      "description": "Docker options"
+    },
+    "registry": {
+      "type": "string",
+      "description": "Registry to push the image to"
+    },
+    "repository": {
+      "type": "string",
+      "description": "Repository to push the image to"
+    },
+    "tag": {
+      "type": "string",
+      "description": "Tag of the image"
+    },
+    "tags": {
+      "description": "Tags for publishing the image",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hash": {
+      "type": "string",
+      "description": "Hash for the image"
+    },
+    "username": {
+      "type": "string",
+      "description": "Username for the registry"
+    },
+    "password": {
+      "type": "string",
+      "description": "Password for the registry"
+    }
+  },
+  "required": ["tags", "tag", "repository", "username", "password"]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "nx-docker",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/nx-docker/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/nx-docker",
+        "main": "tools/nx-docker/src/index.ts",
+        "tsConfig": "tools/nx-docker/tsconfig.lib.json",
+        "assets": [
+          "tools/nx-docker/*.md",
+          {
+            "input": "./tools/nx-docker/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/nx-docker/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/nx-docker",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/nx-docker",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
