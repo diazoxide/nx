@@ -16,6 +16,9 @@
   "type": "commonjs",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",
-  "private": true
+  "author": {
+    "email": "aaron.yor@gmail.com",
+    "name": "Aaron Yordanyan"
+  }
 }
 
