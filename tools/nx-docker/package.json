@@ -7,12 +7,12 @@
   },
   "version": "0.0.1",
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "dockerode": "^4.0.2"
   },
   "devDependencies": {
     "@nx/devkit": "20.0.1",
-    "@types/dockerode": "3.3.31",
-    "dockerode": "^4.0.2"
+    "@types/dockerode": "3.3.31"
   },
   "private": false,
   "publishConfig": {
