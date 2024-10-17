@@ -13,3 +13,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/app
       - /run/host-services/ssh-auth.sock:/ssh-agent
+
