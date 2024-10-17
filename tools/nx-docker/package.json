@@ -11,7 +11,8 @@
   },
   "devDependencies": {
     "@nx/devkit": "20.0.1",
-    "@types/dockerode": "3.3.31"
+    "@types/dockerode": "3.3.31",
+    "dockerode": "^4.0.2"
   },
   "private": false,
   "publishConfig": {
