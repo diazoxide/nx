@@ -1,5 +1,10 @@
 {
   "name": "@diazoxide/nx-docker",
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/diazoxide/nx.git",
+    "directory": "tools/nx-docker"
+  },
   "version": "0.0.1",
   "dependencies": {
     "tslib": "^2.3.0"

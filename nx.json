@@ -1,5 +1,14 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "release": {
+    "projects": ["tools/*"],
+    "version": {
+      "generatorOptions": {
+        "packageRoot": "dist/tools/{projectName}",
+        "currentVersionResolver": "git-tag"
+      }
+    }
+  },
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
@@ -16,6 +25,11 @@
   },
   "nxCloudId": "6710dba867777552274f26a2",
   "targetDefaults": {
+    "nx-release-publish": {
+      "options": {
+        "packageRoot": "dist/tools/{projectName}"
+      }
+    },
     "@nx/esbuild:esbuild": {
       "cache": true,
       "dependsOn": ["^build"],
@@ -46,6 +60,18 @@
       "options": {
         "buildable": true,
         "publishable": true
+      }
+    },
+    {
+      "plugin": "@nx/js/typescript",
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": {
+          "targetName": "tsc:build",
+          "configName": "tsconfig.lib.json"
+        }
       }
     }
   ]
