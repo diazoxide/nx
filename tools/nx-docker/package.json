@@ -23,6 +23,7 @@
   "author": {
     "email": "aaron.yor@gmail.com",
     "name": "Aaron Yordanyan"
-  }
+  },
+  "executors": "./executors.json"
 }
 
