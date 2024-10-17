@@ -7,7 +7,9 @@ services:
     #ports: ['4211:4211']
     tty: true
     stdin_open: true
+    environment:
+      - SSH_AUTH_SOCK=/ssh-agent
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - .:/app
-      - ~/.ssh:/root/.ssh
+      - /run/host-services/ssh-auth.sock:/ssh-agent
