@@ -53,6 +53,12 @@
           "buildTarget": "diazoxide:build:production"
         }
       }
+    },
+    "generate-project-graph": {
+      "executor": "@diazoxide/nx-madge:generate-project-graph",
+      "options": {
+        "imageExtension": "svg"
+      }
     }
   }
 }

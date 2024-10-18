@@ -39,6 +39,14 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "@diazoxide/nx-madge:generate-project-graph": {
+      "options": {
+        "rootFileName": "main.ts",
+        "circularOnly": false,
+        "imageExtension": "jpeg",
+        "generatedGraphsDir": "{workspaceRoot}/graphs"
+      }
     }
   },
   "plugins": [

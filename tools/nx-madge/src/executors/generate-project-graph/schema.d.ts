@@ -1,6 +1,10 @@
 import type { MadgeConfig } from 'madge';
 
 export interface ToolsNxMadgePluginGenerateProjectGraphExecutorSchema {
-  config: MadgeConfig;
-  outputName: string;
+  madgeConfig: MadgeConfig;
+  rootFileName: string;
+  imageType: 'svg' | 'png' | 'jpg' | 'jpeg' | 'pdf';
+  circularOnly: boolean;
+  graphsDir: string;
+  resolvingAliasedModules: boolean;
 }

@@ -1,0 +1,1 @@
+export const DIAZOXIDE_APP = 'DIAZOXIDE_APP';

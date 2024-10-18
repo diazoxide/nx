@@ -1,14 +1,40 @@
 {
-  "$schema": "http://json-schema.org/schema",
+  "$schema": "https://json-schema.org/schema",
   "version": 2,
   "title": "ToolsNxMadgePluginSrcExecutorsGenerateProjectDepsGraph executor",
-  "description": "",
+  "description": "Schema for the Madge plugin to generate project dependency graphs",
   "type": "object",
   "properties": {
-    "config": {
+    "madgeConfig": {
       "type": "object",
-      "description": "MadgeConfig",
+      "description": "Configuration options for Madge",
       "default": {}
+    },
+    "rootFileName": {
+      "type": "string",
+      "description": "The root file name to start analyzing dependencies from",
+      "default": "main.ts"
+    },
+    "imageType": {
+      "type": "string",
+      "description": "The file type of the generated image",
+      "enum": ["svg", "png", "jpg", "jpeg", "pdf"],
+      "default": "svg"
+    },
+    "circularOnly": {
+      "type": "boolean",
+      "description": "Generate a graph that includes only circular dependencies",
+      "default": false
+    },
+    "graphsDir": {
+      "type": "string",
+      "description": "The directory where the generated graphs will be saved",
+      "default": "{workspaceRoot}/graph"
+    },
+    "resolvingAliasedModules": {
+      "type": "boolean",
+      "description": "Resolve aliased modules in the project based on the tsconfig.json of the application or library",
+      "default": false
     }
   },
   "required": []

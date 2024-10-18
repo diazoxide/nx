@@ -1,1 +1,1 @@
-console.log('Hello World');
+export { DIAZOXIDE_APP } from './app/app';
