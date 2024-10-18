@@ -1,3 +1,13 @@
+## 0.2.0 (2024-10-18)
+
+### 🚀 Features
+
+- **workspace:** Finalize version 0.0.1 ([fadd7a3](https://github.com/diazoxide/nx/commit/fadd7a3))
+
+### ❤️  Thank You
+
+- a.kosakyan
+
 ## 0.1.6 (2024-10-17)
 
 This was a version bump only, there were no code changes.
