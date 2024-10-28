@@ -9,12 +9,12 @@ const runExecutor: PromiseExecutor<ImagePushExecutorSchema> = async (
   console.log('Pushing image');
   const docker = new dockerode(options.docker || DockerDefaultConfig);
 
-  const image = await docker.getImage(options.tag);
+  const image = await docker.getImage(options.tagToPush);
   const img = await image.inspect();
   console.log(`Pushing image: "${img.Id}"`);
 
   await Promise.all(
-    options.tags.map(async (tag) => {
+    options.remoteTags.map(async (tag) => {
       const cleanRegistry = options.registry.replace(/^\/|\/$/g, '');
       const cleanRepoName = options.repository.replace(/^\/|\/$/g, '');
 

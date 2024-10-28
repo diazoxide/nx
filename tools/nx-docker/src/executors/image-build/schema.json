@@ -9,22 +9,9 @@
       "type": "object",
       "description": "Docker options"
     },
-    "dockerfile": {
-      "type": "string",
-      "description": "Path to the Dockerfile"
-    },
     "context": {
       "type": "string",
       "description": "Path to the build context"
-    },
-    "target": {
-      "type": "string",
-      "description": "Tag for the image"
-    },
-    "tag": {
-      "type": "string",
-      "description": "Tag for the image"
     }
-  },
-  "required": ["context"]
+  }
 }

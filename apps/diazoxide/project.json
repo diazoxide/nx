@@ -59,6 +59,22 @@
       "options": {
         "imageExtension": "svg"
       }
+    },
+    "build-image": {
+      "executor": "@diazoxide/nx-docker:image-build",
+      "options": {
+        "target": "node-runtime-image",
+        "dockerfile": "./apps/diazoxide/Dockerfile"
+      }
+    },
+    "push-image": {
+      "executor": "@diazoxide/nx-docker:image-push"
+    },
+    "testcmd": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["echo $(pwd)"]
+      }
     }
   }
 }

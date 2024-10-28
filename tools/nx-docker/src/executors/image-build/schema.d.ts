@@ -1,8 +1,9 @@
 import { DockerOptionsContainer } from '../../common';
+import { ImageBuildOptions } from 'dockerode';
 
-export interface ImageBuildExecutorSchema extends DockerOptionsContainer {
-  dockerfile?: string;
-  context: string;
-  target?: string;
-  tag?: string;
+export interface ImageBuildExecutorSchema
+  extends DockerOptionsContainer,
+    ImageBuildOptions {
+  context?: string;
+  src?: string[];
 }

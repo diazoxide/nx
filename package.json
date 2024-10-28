@@ -9,6 +9,8 @@
     "lint:affected": "nx affected --target=lint",
     "build:all": "nx run-many --target=build --all",
     "build:affected": "nx affected --target=build",
+    "build-images:all": "nx run-many --target=build-image --all",
+    "build-images:affected": "nx affected --target=build-image",
     "test:all": "nx run-many --target=test --all",
     "release": "nx release"
   },

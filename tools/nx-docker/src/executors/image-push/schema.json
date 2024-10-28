@@ -17,20 +17,16 @@
       "type": "string",
       "description": "Repository to push the image to"
     },
-    "tag": {
+    "tagToPush": {
       "type": "string",
       "description": "Tag of the image"
     },
-    "tags": {
+    "remoteTags": {
       "description": "Tags for publishing the image",
       "type": "array",
       "items": {
         "type": "string"
       }
-    },
-    "hash": {
-      "type": "string",
-      "description": "Hash for the image"
     },
     "username": {
       "type": "string",

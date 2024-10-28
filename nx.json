@@ -47,6 +47,26 @@
         "imageExtension": "jpeg",
         "generatedGraphsDir": "{workspaceRoot}/graphs"
       }
+    },
+    "@diazoxide/nx-docker:image-build": {
+      "dependsOn": ["build"],
+      "options": {
+        "buildOptions": {
+          "dockerfile": "{projectRoot}/Dockerfile",
+          "tag": "{projectName}"
+        }
+      }
+    },
+    "@diazoxide/nx-docker:image-push": {
+      "dependsOn": ["build-image"],
+      "inputs": ["default", "^default"],
+      "options": {
+        "tag": "{projectName}",
+        "registry": "{args.dockerRegistry}",
+        "repository": "{args.repository}/{projectName}",
+        "username": "{args.dockerUsername}",
+        "password": "{args.dockerPassword}"
+      }
     }
   },
   "plugins": [

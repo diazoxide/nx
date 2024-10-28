@@ -4,20 +4,17 @@ import * as dockerode from 'dockerode';
 import { DockerDefaultConfig } from '../../common';
 
 const runExecutor: PromiseExecutor<ImageBuildExecutorSchema> = async (
-  options,
+  options
 ) => {
-  console.log('Building image');
   const docker = new dockerode(options.docker || DockerDefaultConfig);
+  const { context, src, ...buildOptions } = options;
 
   const stream = await docker.buildImage(
     {
-      context: options.context,
-      src: [options.dockerfile || 'Dockerfile'],
+      context: context || '.',
+      src: src || ['./'],
     },
-    {
-      target: options.target,
-      t: options.tag,
-    }
+    buildOptions
   );
 
   await new Promise((resolve, reject) => {
