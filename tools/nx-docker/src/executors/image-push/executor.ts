@@ -24,7 +24,7 @@ const runExecutor: PromiseExecutor<ImagePushExecutorSchema> = async (
       });
 
       const imgToPush = await docker.getImage(
-        `${options.registry}/${options.repository}:${tag}`
+        `${cleanRegistry}/${cleanRepoName}:${tag}`
       );
 
       const stream = await imgToPush.push({
@@ -32,7 +32,7 @@ const runExecutor: PromiseExecutor<ImagePushExecutorSchema> = async (
         authconfig: {
           username: options.username,
           password: options.password,
-          serveraddress: options.registry,
+          serveraddress: cleanRegistry,
         },
       });
 
