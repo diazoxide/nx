@@ -15,9 +15,12 @@ const runExecutor: PromiseExecutor<ImagePushExecutorSchema> = async (
 
   await Promise.all(
     options.tags.map(async (tag) => {
+      const cleanRegistry = options.registry.replace(/\/$/, '');
+      const cleanRepoName = options.repository.replace(/\/$/, '');
+
       await image.tag({
         tag: `${tag}`,
-        repo: `${options.registry}/${options.repository}`,
+        repo: `${cleanRegistry}/${cleanRepoName}`,
       });
 
       const imgToPush = await docker.getImage(
