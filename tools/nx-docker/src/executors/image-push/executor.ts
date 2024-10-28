@@ -15,8 +15,8 @@ const runExecutor: PromiseExecutor<ImagePushExecutorSchema> = async (
 
   await Promise.all(
     options.tags.map(async (tag) => {
-      const cleanRegistry = options.registry.replace(/\/$/, '');
-      const cleanRepoName = options.repository.replace(/\/$/, '');
+      const cleanRegistry = options.registry.replace(/^\/|\/$/g, '');
+      const cleanRepoName = options.repository.replace(/^\/|\/$/g, '');
 
       await image.tag({
         tag: `${tag}`,
