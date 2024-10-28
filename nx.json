@@ -53,7 +53,7 @@
       "options": {
         "buildOptions": {
           "dockerfile": "{projectRoot}/Dockerfile",
-          "tag": "{projectName}"
+          "t": "{projectName}"
         }
       }
     },

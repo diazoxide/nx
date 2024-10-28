@@ -63,8 +63,7 @@
     "build-image": {
       "executor": "@diazoxide/nx-docker:image-build",
       "options": {
-        "target": "node-runtime-image",
-        "dockerfile": "./apps/diazoxide/Dockerfile"
+        "target": "node-runtime-image"
       }
     },
     "push-image": {
