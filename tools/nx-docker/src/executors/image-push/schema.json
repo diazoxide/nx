@@ -17,6 +17,10 @@
       "type": "string",
       "description": "Repository to push the image to"
     },
+    "subRepository": {
+      "type": "string",
+      "description": "Repository to push the image to"
+    },
     "tagToPush": {
       "type": "string",
       "description": "Tag of the image"

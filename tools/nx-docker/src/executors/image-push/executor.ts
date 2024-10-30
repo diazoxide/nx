@@ -24,16 +24,24 @@ const runExecutor: PromiseExecutor<ImagePushExecutorSchema> = async (
 
   await Promise.all(
     remoteTags.map(async (tag) => {
+      // Remove leading and trailing slashes
       const cleanRegistry = options.registry.replace(/^\/|\/$/g, '');
-      const cleanRepoName = options.repository.replace(/^\/|\/$/g, '');
+      const cleanRepo = options.repository.replace(/^\/|\/$/g, '');
+      const cleanSubRepo = options.subRepository?.replace(/^\/|\/$/g, '');
+
+      let finalRepoName = cleanRepo
+
+      if (cleanRepo) {
+        finalRepoName += `/${cleanSubRepo}`
+      }
 
       await image.tag({
         tag: `${tag}`,
-        repo: `${cleanRegistry}/${cleanRepoName}`,
+        repo: `${cleanRegistry}/${finalRepoName}`,
       });
 
       const imgToPush = await docker.getImage(
-        `${cleanRegistry}/${cleanRepoName}:${tag}`
+        `${cleanRegistry}/${finalRepoName}:${tag}`
       );
 
       const stream = await imgToPush.push({
