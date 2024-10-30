@@ -2,7 +2,7 @@ import { DockerOptionsContainer } from '../../common';
 
 export interface ImagePushExecutorSchema extends DockerOptionsContainer {
   tagToPush: string;
-  remoteTags: string[];
+  remoteTag: string | string[];
   registry?: string;
   repository: string;
   username: string;

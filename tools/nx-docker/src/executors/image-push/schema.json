@@ -21,12 +21,19 @@
       "type": "string",
       "description": "Tag of the image"
     },
-    "remoteTags": {
+    "remoteTag": {
       "description": "Tags for publishing the image",
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
     },
     "username": {
       "type": "string",

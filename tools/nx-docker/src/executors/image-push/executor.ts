@@ -13,8 +13,17 @@ const runExecutor: PromiseExecutor<ImagePushExecutorSchema> = async (
   const img = await image.inspect();
   console.log(`Pushing image: "${img.Id}"`);
 
+  const remoteTags = [];
+  if (typeof options.remoteTag === 'string') {
+    remoteTags.push(options.remoteTag);
+  } else if (Array.isArray(options.remoteTag)) {
+    remoteTags.push(...options.remoteTag);
+  } else {
+    throw new Error('remoteTag must be a string or an array of strings');
+  }
+
   await Promise.all(
-    options.remoteTags.map(async (tag) => {
+    remoteTags.map(async (tag) => {
       const cleanRegistry = options.registry.replace(/^\/|\/$/g, '');
       const cleanRepoName = options.repository.replace(/^\/|\/$/g, '');
 
