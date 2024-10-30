@@ -44,5 +44,5 @@
       "description": "Password for the registry"
     }
   },
-  "required": ["remoteTags", "tagToPush", "repository", "username", "password"]
+  "required": ["remoteTag", "tagToPush", "repository"]
 }

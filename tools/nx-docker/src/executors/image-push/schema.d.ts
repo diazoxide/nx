@@ -5,6 +5,6 @@ export interface ImagePushExecutorSchema extends DockerOptionsContainer {
   remoteTag: string | string[];
   registry?: string;
   repository: string;
-  username: string;
-  password: string;
+  username?: string;
+  password?: string;
 }
