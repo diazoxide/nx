@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "GenerateLazyFeature",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "appName": {
+      "type": "string",
+      "description": "The name of the Angular application.",
+      "x-prompt": {
+        "type": "select",
+        "items": [
+          {
+            "value": "account-console-ui",
+            "label": "Account Console UI"
+          },
+          {
+            "value": "deliverability-ui",
+            "label": "Sender UI"
+          }
+        ],
+        "message": "What is the name of the Angular application?"
+      }
+    },
+    "featureName": {
+      "type": "string",
+      "description": "The name of the feature.",
+      "x-prompt": {
+        "type": "input",
+        "message": "What is the name of the feature? (e.g. account - in singular form)"
+      }
+    },
+    "generatorOverwriteStrategy": {
+      "type": "string",
+      "description": "What should be done when a file is generated but already exists on the system?",
+      "x-prompt": {
+        "type": "list",
+        "default": "throwIfExisting",
+        "enum": ["overwrite", "keepExisting", "throwIfExisting"],
+        "items": [
+          {
+            "value": "overwrite",
+            "label": "Overwrite the existing file"
+          },
+          {
+            "value": "keepExisting",
+            "label": "Keep Existing File"
+          },
+          {
+            "value": "throwIfExisting",
+            "label": "Throw If Existing File"
+          }
+        ],
+        "message": "What should be done when a file is generated but already exists on the system?"
+      }
+    }
+  },
+  "required": ["appName", "featureName"]
+}
+

@@ -1,0 +1,1 @@
+export { <%= featureNameVariations.className %>ApiService } from './<%= featureNameVariations.fileName %>-api.service';

@@ -1,0 +1,51 @@
+{
+  "name": "nx-angular-schematics",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/nx-angular-schematics/src",
+  "projectType": "generator",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/nx-angular-schematics",
+        "main": "tools/nx-angular-schematics/src/index.ts",
+        "tsConfig": "tools/nx-angular-schematics/tsconfig.lib.json",
+        "assets": [
+          "tools/nx-angular-schematics/*.md",
+          {
+            "input": "./tools/nx-angular-schematics/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/nx-angular-schematics/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/nx-angular-schematics",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/nx-angular-schematics",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "tools/nx-angular-schematics/jest.config.ts"
+      }
+    }
+  }
+}
