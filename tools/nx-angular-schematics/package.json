@@ -1,0 +1,27 @@
+{
+  "name": "@diazoxide/angular-schematics",
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/diazoxide/nx.git",
+    "directory": "tools/nx-madge"
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@nx/devkit": "^20.0.1"
+  },
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "private": true,
+  "generators": "./generators.json",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": {
+    "email": "ash.kosakyan@gmail.com",
+    "name": "Ashot Kosakyan"
+  }
+}
