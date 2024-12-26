@@ -1,3 +1,13 @@
+## 0.7.0 (2024-12-26)
+
+### 🚀 Features
+
+- **tools/nx-angular-schematics:** Add release target for `nx-angular-schematics` tool ([04bdcf5](https://github.com/diazoxide/nx/commit/04bdcf5))
+
+### ❤️  Thank You
+
+- a.kosakyan
+
 ## 0.6.0 (2024-12-26)
 
 ### 🚀 Features
