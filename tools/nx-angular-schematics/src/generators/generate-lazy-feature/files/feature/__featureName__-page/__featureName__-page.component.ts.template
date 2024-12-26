@@ -1,0 +1,10 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: '<%= componentSelectorPrefix %>-<%= featureNameVariations.name %>-page',
+  standalone: true,
+  imports: [],
+  templateUrl: './<%= featureNameVariations.fileName %>-page.component.html',
+  styleUrls: ['./<%= featureNameVariations.fileName %>-page.component.less'],
+})
+export default class <%= featureNameVariations.className %>PageComponent {}

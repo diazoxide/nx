@@ -1,0 +1,12 @@
+{
+  "name": "@diazoxide/angular-schematics",
+  "version": "0.0.1",
+  "extends": ["@schematics/angular", "@nx/workspace"],
+  "generators": {
+    "generate-lazy-feature": {
+      "factory": "./src/generators/generate-lazy-feature/generator",
+      "schema": "./src/generators/generate-lazy-feature/schema.json",
+      "description": "generate-lazy-feature generator"
+    }
+  }
+}
