@@ -1400,6 +1400,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@diazoxide/angular-schematics@workspace:tools/nx-angular-schematics":
+  version: 0.0.0-use.local
+  resolution: "@diazoxide/angular-schematics@workspace:tools/nx-angular-schematics"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    "@nx/devkit": ^20.0.1
+  languageName: unknown
+  linkType: soft
+
 "@diazoxide/nx-docker@workspace:tools/nx-docker":
   version: 0.0.0-use.local
   resolution: "@diazoxide/nx-docker@workspace:tools/nx-docker"

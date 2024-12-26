@@ -1,3 +1,14 @@
+## 0.6.0 (2024-12-26)
+
+### 🚀 Features
+
+- **tools/nx-angular-schematics:** Add missing eslint.config.js ([cd51cd8](https://github.com/diazoxide/nx/commit/cd51cd8))
+- **workspace:** Introduce `nx-angular-schematics` as `@diazoxide/angular-schematics` ([fba5c36](https://github.com/diazoxide/nx/commit/fba5c36))
+
+### ❤️  Thank You
+
+- a.kosakyan
+
 ## 0.5.2 (2024-10-30)
 
 This was a version bump only, there were no code changes.
