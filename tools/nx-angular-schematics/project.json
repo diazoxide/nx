@@ -5,6 +5,7 @@
   "projectType": "generator",
   "tags": [],
   "targets": {
+    "nx-release-publish": {},
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
