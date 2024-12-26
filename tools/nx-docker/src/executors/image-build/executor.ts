@@ -6,10 +6,10 @@ import { DockerDefaultConfig } from '../../common';
 const runExecutor: PromiseExecutor<ImageBuildExecutorSchema> = async (
   options
 ) => {
-  const docker = new dockerode(options.docker || DockerDefaultConfig);
-  const { context, src, ...buildOptions } = options;
+  const { docker, context, src, ...buildOptions } = options;
+  const dockerClient = new dockerode(docker || DockerDefaultConfig);
 
-  const stream = await docker.buildImage(
+  const stream = await dockerClient.buildImage(
     {
       context: context || '.',
       src: src || ['./'],
@@ -18,9 +18,17 @@ const runExecutor: PromiseExecutor<ImageBuildExecutorSchema> = async (
   );
 
   await new Promise((resolve, reject) => {
-    docker.modem.followProgress(
+    dockerClient.modem.followProgress(
       stream,
-      (err, res) => (err ? reject(err) : resolve(res)),
+      (err, res) => {
+        if (err) {
+          console.log('qweqweqwe');
+          reject(err);
+        } else {
+          console.log('bibibi');
+          resolve(res);
+        }
+      },
       (event) => console.info(event)
     );
   });

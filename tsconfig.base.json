@@ -15,9 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@diazoxide/nx-angular-schematics": [
+        "tools/nx-angular-schematics/src/index.ts"
+      ],
       "@diazoxide/nx-docker": ["tools/nx-docker/src/index.ts"],
-      "@diazoxide/nx-madge": ["tools/nx-madge/src/index.ts"],
-      "@diazoxide/nx-angular-schematics": ["tools/nx-angular-schematics/src/index.ts"],
+      "@diazoxide/nx-madge": ["tools/nx-madge/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

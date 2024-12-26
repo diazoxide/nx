@@ -23,7 +23,6 @@
     ],
     "sharedGlobals": ["{workspaceRoot}/.github/workflows/ci.yml"]
   },
-  "nxCloudId": "6710dba867777552274f26a2",
   "targetDefaults": {
     "nx-release-publish": {
       "options": {
@@ -51,10 +50,17 @@
     "@diazoxide/nx-docker:image-build": {
       "dependsOn": ["build"],
       "options": {
-        "buildOptions": {
-          "dockerfile": "{projectRoot}/Dockerfile",
-          "t": "{projectName}"
+        "dockerfile": "Dockerfile",
+        "t": "{projectName}",
+        "buildargs": {
+          "PROJECT": "{projectName}"
         }
+      }
+    },
+    "@diazoxide/nx-docker:run-container": {
+      "dependsOn": ["build-image"],
+      "options": {
+        "image": "{projectName}"
       }
     },
     "@diazoxide/nx-docker:image-push": {

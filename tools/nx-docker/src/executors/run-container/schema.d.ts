@@ -1,8 +1,8 @@
 import { DockerOptionsContainer } from '../../common';
+import { ContainerCreateOptions } from 'dockerode';
 
-export interface RunContainerExecutorSchema extends DockerOptionsContainer {
-  dockerfile?: string;
-  context: string;
-  target?: string;
-  containerName: string;
+export interface RunContainerExecutorSchema
+  extends DockerOptionsContainer,
+    ContainerCreateOptions {
+  image: string;
 }

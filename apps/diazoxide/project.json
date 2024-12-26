@@ -66,6 +66,9 @@
         "target": "node-runtime-image"
       }
     },
+    "run-container": {
+      "executor": "@diazoxide/nx-docker:run-container"
+    },
     "push-image": {
       "executor": "@diazoxide/nx-docker:image-push"
     },

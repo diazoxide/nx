@@ -9,47 +9,26 @@ const runExecutor: PromiseExecutor<RunContainerExecutorSchema> = async (
 ) => {
   console.log('Executor ran for RunContainer', options);
 
-  const docker = new dockerode(options.docker || DockerDefaultConfig);
+  const { image, docker, ...containerOptions } = options;
 
-  const img = await docker.getImage(options.containerName);
+  const dockerClient = new dockerode(docker || DockerDefaultConfig);
+  const img = await dockerClient.getImage(options.image);
   let imgInfo: ImageInspectInfo;
 
   try {
     imgInfo = await img.inspect();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (e) {
-    const stream = await docker.buildImage(
-      {
-        context: options.context,
-        src: [options.dockerfile || 'Dockerfile'],
-      },
-      {
-        target: options.target,
-        t: options.containerName,
-      }
-    );
-
-    await new Promise((resolve, reject) => {
-      docker.modem.followProgress(
-        stream,
-        (err, res) => (err ? reject(err) : resolve(res)),
-        (event) => console.info(event)
-      );
-    });
-
-    const img = await docker.getImage(options.containerName);
-    imgInfo = await img.inspect();
+    throw new Error(`Image ${options.image} not found`);
   }
 
-  await docker.listContainers();
+  await dockerClient.listContainers();
 
-  const container = await docker.createContainer({
+  const container = await dockerClient.createContainer({
     Image: imgInfo.Id,
-    name: options.containerName + '-container',
-    Cmd: ['/bin/sh', '-c', 'while true; do echo hello world; sleep 1; done'],
-    // Env: options.env,
-    // HostConfig: options.hostConfig,
+    ...containerOptions,
   });
+
+  console.log('Container created', container.id);
 
   await container.start();
 
